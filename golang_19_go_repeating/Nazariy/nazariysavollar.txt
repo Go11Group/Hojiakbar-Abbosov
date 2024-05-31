@@ -1,0 +1,127 @@
+Birinchi nihoyatda hamma birlikdagi so'rovingizni takomillashtirib ko'ramiz:
+
+1. **Golangda data tiplar haqida yozing.**
+   Golangda quyidagi boshqa dasturlash tillariga taqqoslangan mos ravishda data tiplarining kichik ro'yxati mavjud:
+   - *Integers:* `int`, `int8`, `int16`, `int32`, `int64`, `uint`, `uint8`, `uint16`, `uint32`, `uint64`, `uintptr`
+   - *Floats:* `float32`, `float64`
+   - *Complex Numbers:* `complex64`, `complex128`
+   - *Strings:* `string`
+   - *Booleans:* `bool`
+   - *Arrays:* `[n]type` (masalan, `[5]int` yoki `[3]string`)
+   - *Slices:* `[]type` (masalan, `[]int` yoki `[]string`)
+   - *Maps:* `map[keyType]valueType` (masalan, `map[string]int` yoki `map[int]string`)
+   - *Structs:* (masalan, `type Person struct { Name string; Age int }`)
+
+2. **Go qaysi turdagi konvertatsiyani qo'llab-quvvatlaydi? Butun sonni floatga aylantiring.**
+   Go dasturlash tili ko'plab turli turdagi konvertatsiyani qo'llab-quvvatlaydi. Butun sonni floatga konvertatsiya qilish uchun, `float64` turini ishlatishingiz mumkin. Masalan:
+   ```go
+   package main
+   
+   import (
+   	"fmt"
+   )
+   
+   func main() {
+   	// Butun son
+   	num := 10
+   	// Floatga konvertatsiya
+   	fnum := float64(num)
+   	fmt.Println(fnum)
+   }
+   ```
+
+3. **Stringlar qanday concatenate qilinadi? Stringni print qilmasdan formatlashni ko'rsating.**
+   Go-da stringlarni concatenate qilish uchun `+` operatoridan foydalanishingiz mumkin. Formatlash uchun esa `fmt.Sprintf` yoki `fmt.Printf` funktsiyalaridan foydalaniladi. Masalan:
+   ```go
+   package main
+   
+   import (
+   	"fmt"
+   )
+   
+   func main() {
+   	// Concatenate qilish
+   	str1 := "Hello"
+   	str2 := "World"
+   	result := str1 + " " + str2
+   	fmt.Println(result)
+   
+   	// Formatlash
+   	name := "John"
+   	age := 30
+   	fmt.Printf("Name: %s, Age: %d\n", name, age)
+   }
+   ```
+
+4. **Funksiyadan bir nechta qiymatlarni qaytara olasizmi? Iltimos, misol keltiring.**
+   Ha, Go tilida funksiya bir nechta qiymatlarni qaytara oladi. Misol:
+   ```go
+   package main
+   
+   import (
+   	"fmt"
+   )
+   
+   func getMultipleValues() (int, string) {
+   	return 10, "Hello"
+   }
+   
+   func main() {
+   	num, str := getMultipleValues()
+   	fmt.Println(num, str)
+   }
+   ```
+
+5. **= va := orasidagi farqni tushuntiring.**
+   `=` operatori Go-da qiymat berish uchun ishlatiladi. Misol, `x = 10` deb yozilganida `x` o'zgaruvchisiga 10 qiymatini beradi. `:=` operatori esa o'zgaruvchi e'lon qilish uchun ishlatiladi. Agar o'zgaruvchi avvaldan mavjud bo'lsa, `:=` operatori unda xatolik chiqaradi. Misol, `y := 20` deb yozilganida `y` o'zgaruvchisini e'lon qiladi.
+
+6. **Pointer nima?**
+   Pointer (ko'rsatuvchi) Go tilida ob'ektni manfiy xotiradagi o'rnini ko'rsatadi. Bu xotira maydonlari orqali ob'ektni boshqa joyda ishlatishga imkon beradi. Masalan, `var x *int` deb yaratilgan ko'rsatuvchi `x` bir `int` ob'ektini ko'rsatadi.
+
+7. **Parallelism va Concurencyni farqlarini ayting.**
+   Parallelism (parallel ish) va concurrency (birlashma) dasturlashda uyg'unligi yoki tarmoqlardagi ishlar bir-biriga bog'liqligini bildiradi. Parallelismda bir nechta ish o'zaro mos ravishda, bir vaqtning o'zida amalga oshiriladi. Concurency esa bir nechta ish o'zaro bog
+
+'liq emas, vaqtning o'zida boshqa ishlar amalga oshiriladi. Go tilida goroutines va channels orqali concurrent va parallel ishlarni o'zgartirish mumkin.
+
+8. **Golangda channellar nima? Uni qanday va nimaga ishlatamiz?**
+   Channel, Go tilida goroutines orqali xabar almashish uchun mo'ljallangan tur. Channel yordamida ma'lumotlar goroutines'lar orasida o'zaro almashinuvi yuzaga keladi. Channel yaratish uchun `make` funktsiyasidan foydalaniladi. Masalan:
+   ```go
+   ch := make(chan int)
+   ```
+   Channel orqali ma'lumot yuborish va qabul qilish uchun `<-` operatoridan foydalaniladi. Masalan:
+   ```go
+   ch <- 10 // Ma'lumotni yuborish
+   data := <-ch // Ma'lumotni qabul qilish
+   ```
+
+9. **Method bilan Funksiyani nima farqi bor?**
+   Go tilida funksiya o'zgaruvchilarga ishlovchi funksiyalarni anglatadi, va ularning boshqa paketlarda yoki structs ichida ishlatilishi mumkin. Method esa faqat bir tur (struct yoki boshqa type) uchun mavjud bo'lgan funksiya hisoblanadi. Methodlar struct'lar bilan bog'liq bo'lgan operatsiyalarni bajarish uchun ishlatiladi.
+
+10. **Goda sync.WaitGroup nima?**
+    `sync.WaitGroup` Go tilida goroutines'lar orqali ishlab yurishni sinkronlashtirish uchun ishlatiladi. WaitGroup o'zida necha goroutine boshqa ishni tugatishini kutish uchun xususiyatlarga ega bo'lgan qo'shimcha tur. Masalan:
+    ```go
+    package main
+    
+    import (
+    	"fmt"
+    	"sync"
+    )
+    
+    func worker(id int, wg *sync.WaitGroup) {
+    	defer wg.Done()
+    	fmt.Printf("Worker %d is done\n", id)
+    }
+    
+    func main() {
+    	var wg sync.WaitGroup
+    
+    	for i := 1; i <= 5; i++ {
+    		wg.Add(1)
+    		go worker(i, &wg)
+    	}
+    
+    	wg.Wait()
+    	fmt.Println("All workers have finished")
+    }
+    ```
+    Bu misolda, `sync.WaitGroup` ishlab yurishni yopish uchun `wg.Wait()` metodini kutadi va goroutines'lar tugagan vaqtda `wg.Done()` ni chaqiradi.

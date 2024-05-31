@@ -1,0 +1,16 @@
+var a,b int
+
+fmt.Scanf("%d",&a,"%d",&b)
+
+fmt.Println(a + b)
+
+Bu yerda faqat A ni chiqaradi.Agar biz 2 lasi uchun kiritmoqchi bo'lsak a,b uchun alohida Scanf yozishimiz kerak.
+
+var a,b int
+
+fmt.Scanf("%d",&a)
+fmt.Scanf("%d",&b)
+
+fmt.Println(a + b)
+
+Bu to'g'ri javob

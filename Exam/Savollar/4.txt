@@ -1,0 +1,73 @@
+Go dasturlash tilida massivlar (arrays) va Slice (slices) muhim ma'lumot tuzilmalaridir. Ular yordamida bir nechta qiymatlarni bitta o'zgaruvchida saqlash mumkin, lekin ular orasida ba'zi muhim farqlar bor.
+
+
+Array — bu bir xil turdagi elementlar to'plami bo'lib, ularning uzunligi aniqlangan va o'zgarmasdir.
+
+   var a [5]int 
+   a[0] = 1
+   a[1] = 2
+   a[2] = 3
+   a[3] = 4
+   a[4] = 5
+
+
+
+   b := [5]int{1, 2, 3, 4, 5}
+
+
+   c := [...]int{1, 2, 3, 4, 5}
+
+   fmt.Println(a[0]) // 1
+   fmt.Println(b[1]) // 2
+   fmt.Println(c[2]) // 3
+
+Slice — bu massivning dinamik qismi bo'lib, uzunligi o'zgarishi mumkin. Ular array ustida ko'proq qulaylik beradi.
+   var s []int 
+
+
+   s := []int{1, 2, 3, 4, 5}
+
+
+
+   arr := [5]int{1, 2, 3, 4, 5}
+   s := arr[1:4] 
+   fmt.Println(s)
+
+
+   fmt.Println(len(s)) 
+   fmt.Println(cap(s)) 
+  
+
+   s = append(s, 6, 7)
+   fmt.Println(s) // [2 3 4 6 7]
+
+   s := make([]int, 5) 
+   fmt.Println(s) 
+
+Slice array ustida ishlaydi va ular asl massivning bir qismi hisoblanadi. Shuning uchun, Slicedagi o'zgarishlar asl massivga ham ta'sir qiladi.
+
+
+package main
+
+import "fmt"
+
+func main() {
+    arr := [5]int{1, 2, 3, 4, 5}
+    s := arr[1:4]
+
+    fmt.Println("Dastlabki Slice:", s) 
+
+    s[0] = 10 
+    fmt.Println("Slice o'zgartirilgandan keyin:", s) 
+    fmt.Println("Asl array o'zgartirilgandan keyin:", arr) 
+}
+
+
+Bu misol Slice va massivning bir-biriga bog'liqligini ko'rsatadi: bo'lakda o'zgarish qilinsa, bu asl massivga ham ta'sir qiladi.
+
+
+   - Slice uzunligi o'zgarishi mumkin, massivlar esa o'zgarmaydi.
+   - Slice yordamida massivning qismiga osonlik bilan murojaat qilish va ishlash mumkin.
+   - Slice funksiyalarga parametr sifatida uzatilganda, ular yangi nusxa yaratmasdan, asl array ustida ishlaydi, bu esa xotira va vaqtni tejaydi.
+
+Massivlar va Slice Go dasturlash tilining muhim qismidir. Slice massivlar ustida qulay va samarali ishlash imkoniyatini beradi.

@@ -1,0 +1,11 @@
+m:= make(map[string]int)
+	m["x"] = 10
+	fmt.Println(M["x"])
+
+bu yerda M nomli o'zgaruvchi yo'q.Shuning uchun xato beradi.
+
+m:= make(map[string]int)
+	m["x"] = 10
+	fmt.Println(m["x"])
+
+Bu to'g'ri javob

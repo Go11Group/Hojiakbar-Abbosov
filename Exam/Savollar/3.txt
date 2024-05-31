@@ -1,0 +1,22 @@
+3.Bu kodni for loopi orqali while va do while bilan ishlanishi mumkin
+
+package main 
+
+func main(){
+
+    for i := 1;i <= 10;i++{
+        fmt.Println(i)
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+

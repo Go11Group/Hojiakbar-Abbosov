@@ -1,0 +1,194 @@
+{
+  "CLubs": [
+    {
+      "ClubId": 1,
+      "ClubLiga": "Ispaniya",
+      "ClubName": "RM",
+      "ClubPlayers": [
+        {
+          "PlayerId": 1,
+          "PlayerName": "Lunin",
+          "PlayerSurname": "Andrey",
+          "PlayerAge": 24,
+          "PlayerState": "Ukraina",
+          "PlayerPosition": "Darbozabon"
+        },
+        {
+          "PlayerId": 2,
+          "PlayerName": "Mendy",
+          "PlayerSurname": "Ferlan",
+          "PlayerAge": 26,
+          "PlayerState": "Fransiya",
+          "PlayerPosition": "Himoyachi"
+        },
+        {
+          "PlayerId": 3,
+          "PlayerName": "Rudiger",
+          "PlayerSurname": "_",
+          "PlayerAge": 27,
+          "PlayerState": "Germaniya",
+          "PlayerPosition": "Himoyachi"
+        },
+        {
+          "PlayerId": 4,
+          "PlayerName": "Militao",
+          "PlayerSurname": "Eder",
+          "PlayerAge": 28,
+          "PlayerState": "Braziliya",
+          "PlayerPosition": "Himoyachi"
+        },
+        {
+          "PlayerId": 5,
+          "PlayerName": "Vascez",
+          "PlayerSurname": "Lucas",
+          "PlayerAge": 27,
+          "PlayerState": "Ispaniya",
+          "PlayerPosition": "Himoyachi"
+        },
+        {
+          "PlayerId": 6,
+          "PlayerName": "Camavinga",
+          "PlayerSurname": "Eduardo",
+          "PlayerAge": 22,
+          "PlayerState": "Fransiya",
+          "PlayerPosition": "YarimHimoyachi"
+        },
+        {
+          "PlayerId": 7,
+          "PlayerName": "Valverde",
+          "PlayerSurname": "Federico",
+          "PlayerAge": 26,
+          "PlayerState": "Urugvay",
+          "PlayerPosition": "YarimHimoyachi"
+        },
+        {
+          "PlayerId": 8,
+          "PlayerName": "Bellingham",
+          "PlayerSurname": "Jude",
+          "PlayerAge": 20,
+          "PlayerState": "Angliya",
+          "PlayerPosition": "HujumkorYarimHimoyachi"
+        },
+        {
+          "PlayerId": 9,
+          "PlayerName": "Vinicius",
+          "PlayerSurname": "Junior",
+          "PlayerAge": 24,
+          "PlayerState": "Brazilia",
+          "PlayerPosition": "Hujumchi"
+        },
+        {
+          "PlayerId": 10,
+          "PlayerName": "Rodrygo",
+          "PlayerSurname": "_",
+          "PlayerAge": 23,
+          "PlayerState": "Brazilia",
+          "PlayerPosition": "Hujumchi"
+        },
+        {
+          "PlayerId": 11,
+          "PlayerName": "Kilian",
+          "PlayerSurname": "Mbappe",
+          "PlayerAge": 25,
+          "PlayerState": "Fransiya",
+          "PlayerPosition": "Hujumchi"
+        }
+      ]
+    },
+    {
+      "ClubId": 2,
+      "ClubLiga": "Bundesliga",
+      "ClubName": "BD",
+      "ClubPlayers": [
+        {
+          "PlayerId": 1,
+          "PlayerName": "Gregor",
+          "PlayerSurname": "Kobel",
+          "PlayerAge": 27,
+          "PlayerState": "Shvetsaria",
+          "PlayerPosition": "Darbozabon"
+        },
+        {
+          "PlayerId": 2,
+          "PlayerName": "Mats",
+          "PlayerSurname": "Hummels",
+          "PlayerAge": 32,
+          "PlayerState": "Germany",
+          "PlayerPosition": "Himoyachi"
+        },
+        {
+          "PlayerId": 3,
+          "PlayerName": "Ian",
+          "PlayerSurname": "Maatsen",
+          "PlayerAge": 22,
+          "PlayerState": "Niderlandia",
+          "PlayerPosition": "Himoyachi"
+        },
+        {
+          "PlayerId": 4,
+          "PlayerName": "Julian",
+          "PlayerSurname": "Ryerson",
+          "PlayerAge": 27,
+          "PlayerState": "Norvegia",
+          "PlayerPosition": "Himoyachi"
+        },
+        {
+          "PlayerId": 5,
+          "PlayerName": "Marius",
+          "PlayerSurname": "Wolf",
+          "PlayerAge": 29,
+          "PlayerState": "Germany",
+          "PlayerPosition": "Himoyachi"
+        },
+        {
+          "PlayerId": 6,
+          "PlayerName": "Emre",
+          "PlayerSurname": "Can",
+          "PlayerAge": 30,
+          "PlayerState": "Germany",
+          "PlayerPosition": "YarimHimoyachi"
+        },
+        {
+          "PlayerId": 7,
+          "PlayerName": "Marcel",
+          "PlayerSurname": "Sabitzer",
+          "PlayerAge": 30,
+          "PlayerState": "Avstralia",
+          "PlayerPosition": "YarimHimoyachi"
+        },
+        {
+          "PlayerId": 8,
+          "PlayerName": "Marco",
+          "PlayerSurname": "Reus",
+          "PlayerAge": 35,
+          "PlayerState": "Germany",
+          "PlayerPosition": "YarimHimoyachi"
+        },
+        {
+          "PlayerId": 9,
+          "PlayerName": "Karim",
+          "PlayerSurname": "Adeyemi",
+          "PlayerAge": 22,
+          "PlayerState": "Germany",
+          "PlayerPosition": "Hujumchi"
+        },
+        {
+          "PlayerId": 10,
+          "PlayerName": "Jadon",
+          "PlayerSurname": "Sancho",
+          "PlayerAge": 24,
+          "PlayerState": "England",
+          "PlayerPosition": "Hujumchi"
+        },
+        {
+          "PlayerId": 11,
+          "PlayerName": "Niclas",
+          "PlayerSurname": "Fuulkrug",
+          "PlayerAge": 31,
+          "PlayerState": "Germany",
+          "PlayerPosition": "Hujumchi"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+Golangda har qanday dasturlash tili yoki dasturlash tilida, ma'lumotlarni turli usullarda saqlash uchun ma'lumot turlari (data types) aniqlanadi. Golangda quyidagi boshqa dasturlash tillariga taqsimlangan mos ravishda data tiplarining kichik ro'yxati mavjud:
+
+1. **Butun sonlar (Integers):**
+   - `int`: Platform orqali o'lchashga qarab butun sonlarni saqlash uchun ishlatiladi.
+   - `int8`, `int16`, `int32`, `int64`: Bir-bir o'lchamlardagi butun sonlarni saqlash uchun ishlatiladi (masalan, 8, 16, 32 yoki 64 bit).
+   - `uint`: Musbat butun sonlarni saqlash uchun ishlatiladi.
+   - `uint8`, `uint16`, `uint32`, `uint64`: Bir-bir o'lchamlardagi musbat butun sonlarni saqlash uchun ishlatiladi.
+   - `uintptr`: Platformga bog'li o'lchamli butun sonlar uchun ishlatiladi.
+
+2. **Haqiqiy sonlar (Floats):**
+   - `float32`, `float64`: Yolg'iz va yarmog'li sonlarni saqlash uchun ishlatiladi (masalan, 32-bit va 64-bit).
+
+3. **Kompleks sonlar (Complex Numbers):**
+   - `complex64`, `complex128`: Yolg'iz va yarmog'li kompleks sonlarni saqlash uchun ishlatiladi (masalan, 64-bit va 128-bit).
+
+4. **Matnlar (Strings):**
+   - `string`: Matnlar yoki harflarni saqlash uchun ishlatiladi.
+
+5. **Booleantur (Booleans):**
+   - `bool`: Faqat ikkita qiymat, `true` yoki `false`, ni saqlash uchun ishlatiladi.
+
+6. **Massivlar (Arrays):**
+   - `[n]type`: N-elementli massivlarni saqlash uchun ishlatiladi.
+
+7. **Slicelar (Slices):**
+   - `[]type`: Dinamik o'lchamli massivlarni saqlash uchun ishlatiladi.
+
+8. **Kartalar (Maps):**
+   - `map[keyType]valueType`: Kalit-qiymat juftligini saqlash uchun ishlatiladi.
+
+9. **Structlar (Structs):**
+   - `struct`: Turli xususiyatlarga ega ob'ektlarni yaratish uchun ishlatiladi.
+
+10. **Pointerlar (Pointers):**
+    - `*type`: Ob'ektni manfiy xotiradagi o'rnini ko'rsatish uchun ishlatiladi.
+
+Bu turli ma'lumot turlari Golangda odatda ishlatiladi va dastur yozishda asosiy ko'rinishni beradi. Har bir turning o'zining xususiyatlari va qulayliklari mavjud, va ularga qanday qilib foydalanishni bilish dasturchilar uchun muhimdir.

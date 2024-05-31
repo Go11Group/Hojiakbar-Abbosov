@@ -1,0 +1,112 @@
+Go dasturlash tilida massivlar (arrays) va bo'laklar (slices) muhim ma'lumot tuzilmalaridir. Ular yordamida bir nechta qiymatlarni bitta o'zgaruvchida saqlash mumkin, lekin ular orasida ba'zi muhim farqlar bor.
+
+### Massivlar (Arrays)
+
+Array — bu bir xil turdagi elementlar to'plami bo'lib, ularning uzunligi aniqlangan va o'zgarmasdir.
+
+#### Array yaratish va ulardan foydalanish:
+
+1. **E'lon qilish va qiymat berish:**
+   ```go
+   var a [5]int // Uzunligi 5 bo'lgan int array
+   a[0] = 1
+   a[1] = 2
+   a[2] = 3
+   a[3] = 4
+   a[4] = 5
+   ```
+
+2. **E'lon qilish va bir vaqtning o'zida qiymat berish:**
+   ```go
+   b := [5]int{1, 2, 3, 4, 5}
+   ```
+
+3. **Uzunligi avtomatik aniqlash:**
+   ```go
+   c := [...]int{1, 2, 3, 4, 5}
+   ```
+
+4. **Array elementlariga murojaat qilish:**
+   ```go
+   fmt.Println(a[0]) // 1
+   fmt.Println(b[1]) // 2
+   fmt.Println(c[2]) // 3
+   ```
+
+### Bo'laklar (Slices)
+
+Bo'lak — bu massivning dinamik qismi bo'lib, uzunligi o'zgarishi mumkin. Ular array ustida ko'proq qulaylik beradi.
+
+#### Bo'lak yaratish va ulardan foydalanish:
+
+1. **Bo'lak yaratish:**
+   ```go
+   var s []int // Elementlarsiz bo'lak, uzunligi 0
+   ```
+
+2. **E'lon qilish va bir vaqtning o'zida qiymat berish:**
+   ```go
+   s := []int{1, 2, 3, 4, 5}
+   ```
+
+3. **Massivdan bo'lak olish:**
+   ```go
+   arr := [5]int{1, 2, 3, 4, 5}
+   s := arr[1:4] // arr ning 1-indeksdan 3-indeksgacha (4-indeks kiritilmagan) bo'lagi
+   fmt.Println(s) // [2 3 4]
+   ```
+
+4. **Bo'lak uzunligi va hajmi:**
+   ```go
+   fmt.Println(len(s)) // Bo'lak uzunligi
+   fmt.Println(cap(s)) // Bo'lak hajmi (asosiy massivning maksimal uzaytirilishi mumkin bo'lgan uzunligi)
+   ```
+
+5. **Bo'lakka element qo'shish:**
+   ```go
+   s = append(s, 6, 7)
+   fmt.Println(s) // [2 3 4 6 7]
+   ```
+
+6. **Bo'sh bo'lak yaratish:**
+   ```go
+   s := make([]int, 5) // 5 elementli int bo'lak
+   fmt.Println(s) // [0 0 0 0 0]
+   ```
+
+### Bo'lakning array bilan bog'liqligi
+
+Bo'laklar array ustida ishlaydi va ular asl massivning bir qismi hisoblanadi. Shuning uchun, bo'lakdagi o'zgarishlar asl massivga ham ta'sir qiladi.
+
+**Misol:**
+```go
+package main
+
+import "fmt"
+
+func main() {
+    arr := [5]int{1, 2, 3, 4, 5}
+    s := arr[1:4]
+
+    fmt.Println("Dastlabki bo'lak:", s) // [2 3 4]
+
+    s[0] = 10 // Bo'lakning birinchi elementini o'zgartirish
+    fmt.Println("Bo'lak o'zgartirilgandan keyin:", s) // [10 3 4]
+    fmt.Println("Asl array o'zgartirilgandan keyin:", arr) // [1 10 3 4 5]
+}
+```
+
+Bu misol bo'lak va massivning bir-biriga bog'liqligini ko'rsatadi: bo'lakda o'zgarish qilinsa, bu asl massivga ham ta'sir qiladi.
+
+### Nima uchun bo'laklar foydali?
+
+1. **Dinamik uzunlik:**
+   - Bo'laklar uzunligi o'zgarishi mumkin, massivlar esa o'zgarmaydi.
+
+2. **Qulaylik:**
+   - Bo'laklar yordamida massivning qismiga osonlik bilan murojaat qilish va ishlash mumkin.
+
+3. **Funksiyalarga uzatish:**
+   - Bo'laklar funksiyalarga parametr sifatida uzatilganda, ular yangi nusxa yaratmasdan, asl array ustida ishlaydi, bu esa xotira va vaqtni tejaydi.
+
+Massivlar va bo'laklar Go dasturlash tilining muhim qismidir. Bo'laklar massivlar ustida qulay va samarali ishlash imkoniyatini beradi.

@@ -1,0 +1,27 @@
+package main
+
+func main(){
+
+    fasl := 2
+
+    switch fasl:
+        case 1:
+            fmt.Println("Bahor")
+        case 2:
+            fmt.Println("Yoz")
+        case 3:
+            fmt.Println("Kuz")
+        case 4:
+            fmt.Println("Qish") 
+        default:
+            fmt.Println("Bunday fasl yo'q")
+}
+
+switch case kodini biz agar shartlar ko'payib ketsa va kodimizni sekinlashtirsa ishlatishim kerak.
+
+
+
+
+
+
+

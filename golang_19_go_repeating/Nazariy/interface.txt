@@ -1,0 +1,51 @@
+Interface Go (Golang) dasturlash tilidagi juda muhim qism. U obyektlarning xususiyatlarini yoki amallarini ifodalovchi nomli tur.
+
+Go tilida, interface bir nechta metodlarni ifodalovchi bir narsa. Bu metodlar obyektlar tomonidan qabul qilinishi va uning uchun amal qilinishini ta'minlaydi. Interface bilan, siz turli turdagi obyektlarning bir qismi uchun standart amallarni ifodalovchi yana bir yordamga ega bo'lasiz.
+
+Interface yaratishning eng asosiy shakli quyidagicha:
+```go
+type InterfaceName interface {
+    Method1() ReturnType1
+    Method2() ReturnType2
+    // Va boshqa metodlar...
+}
+```
+
+Bu yerda `InterfaceName` nomli yangi interface yaratiladi va unga `Method1`, `Method2`, va boshqa metodlar qo'shiladi. Har bir metodda shu metodning qaytarishi kerak bo'lgan tipni (ReturnType1, ReturnType2) belgilanadi.
+
+Interface bilan amal qilingan misol:
+```go
+package main
+
+import (
+    "fmt"
+)
+
+type Animal interface {
+    Sound() string
+}
+
+type Dog struct{}
+
+func (d Dog) Sound() string {
+    return "Woof!"
+}
+
+type Cat struct{}
+
+func (c Cat) Sound() string {
+    return "Meow!"
+}
+
+func main() {
+    var animal1 Animal
+    animal1 = Dog{}
+    fmt.Println(animal1.Sound()) // Output: Woof!
+
+    var animal2 Animal
+    animal2 = Cat{}
+    fmt.Println(animal2.Sound()) // Output: Meow!
+}
+```
+
+Bu misolda, `Animal` interface `Sound` metodini ta'minlovchi. `Dog` va `Cat` structlar esa `Sound` metodini o'z ichiga oladi. `Animal` interface yordamida, biz `Dog` va `Cat` obyektlarini bir qator holatda qabul qilishimiz va ularning `Sound` metodlarini chaqirishimiz mumkin bo'lgan standart yordamini yaratamiz.

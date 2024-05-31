@@ -1,0 +1,1 @@
+Constant bu o'zgarmas o'zgaruvchi.Agar unga qiymat berib , keyinchalik o'zgartira olmaymiz.Variableni esa keyinchalik o'zgartira olamiz.Agar biz Constant e'lon qilmoqchi bo'lsak const deb yozishimiz kerak.  

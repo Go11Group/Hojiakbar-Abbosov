@@ -1,0 +1,151 @@
+package company
+
+import (
+	"encoding/json"
+	"fmt"
+	"model/meniger"
+	"os"
+)
+
+type Company struct {
+	Id      int    `json:"id"`
+	Name    string `json:"name"`
+	Phone   string `json:"phone"`
+	Address string `json:"adress"`
+	QueId   int    `json:"queId"`
+}
+type Recuiter struct {
+	Id        int
+	Kompaniya []Company
+	Name      string
+	Surname   string
+	Email     string
+	Password  string
+}
+
+
+func (company *Company) CreateInterView() string {
+	reuciters := []meniger.Meniger1{}
+
+	companyFile, err := os.OpenFile("companies.json", os.O_CREATE|os.O_RDWR|os.O_APPEND, 0666)
+	if err != nil {
+		fmt.Println("File is not ")
+		panic(err)
+	}
+
+	data := json.NewDecoder(companyFile)
+	err = data.Decode(&reuciters)
+	if err != nil {
+		fmt.Println("Dekodrga err bor")
+	}
+	fmt.Println("Id:\t")
+	fmt.Scan(&company.Id)
+	fmt.Println("Name:\t")
+	fmt.Scan(&company.Name)
+	fmt.Println("Phone:\t")
+	fmt.Scan(&company.Phone)
+	fmt.Println("Address:\t")
+	fmt.Scan(&company.Address)
+	recuiter := meniger.Meniger1{}
+	recuiter.Kompaniya = append(recuiter.Kompaniya, *company)
+	reuciters = append(reuciters, recuiter)
+
+	info3 := json.NewEncoder(companyFile)
+	err = info3.Encode(reuciters)
+	if err != nil {
+		return ("Error is not write file ")
+	}
+	return "Success "
+
+}
+
+func (company *Company) ReadCompany() {
+	companies := []Company{}
+	companyFile, err := os.OpenFile("companies.json", os.O_CREATE|os.O_RDWR|os.O_APPEND, 0666)
+	if err != nil {
+		fmt.Println("File is not ")
+		panic(err)
+	}
+
+	data := json.NewDecoder(companyFile)
+	err = data.Decode(&companies)
+	if err != nil {
+		fmt.Println()
+	}
+
+	if len(companies) == 0 {
+		fmt.Println("Fayl bo`sh!")
+	} else {
+		for i := 0; i < len(companies); i++ {
+			fmt.Println(companies[i])
+		}
+	}
+
+}
+
+func (company *Company) UpdateCompany(quId int) {
+
+	companies := []Company{}
+
+	companyFile, err := os.OpenFile("companies.json", os.O_CREATE|os.O_RDWR|os.O_APPEND, 0666)
+	if err != nil {
+		fmt.Println("File is not ")
+		panic(err)
+	}
+
+	data := json.NewDecoder(companyFile)
+	err = data.Decode(&companies)
+	if err != nil {
+		fmt.Println("Dekodrga err bor")
+	}
+	var queid int
+	for i := 0; i < len(companies); i++ {
+		if companies[i].QueId == queid {
+			fmt.Println("Name:\t")
+			fmt.Scan(&company.Name)
+			companies[i].Name = company.Name
+			fmt.Println("Id:\t")
+			fmt.Scan(&company.Id)
+			companies[i].Id = company.Id
+			fmt.Println("Phone:\t")
+			fmt.Scan(&company.Phone)
+			companies[i].Phone = company.Phone
+			fmt.Println("QueId:\t")
+			fmt.Scan(&company.QueId)
+			companies[i].QueId = company.QueId
+			break
+		}
+	}
+	companies = append(companies, *company)
+	info := json.NewEncoder(companyFile)
+	err = info.Encode(companies)
+	if err != nil {
+		fmt.Println("Is not Updated")
+		panic(err)
+	}
+
+}
+
+func (company *Company) DeleteCompany(queId int) {
+	companies := []Company{}
+	companyFile, err := os.OpenFile("companies.json", os.O_CREATE|os.O_RDWR|os.O_APPEND, 0666)
+	if err != nil {
+		fmt.Println("File is not ")
+		panic(err)
+	}
+
+	data := json.NewDecoder(companyFile)
+	err = data.Decode(&companies)
+	if err != nil {
+		fmt.Println("Dekodrga err bor")
+	}
+	companies1 := []Company{}
+
+	for i := 0; i < len(companies); i++ {
+		if companies[i].QueId != queId {
+			companies1 = append(companies1, companies[i])
+			break
+		}
+	}
+
+}

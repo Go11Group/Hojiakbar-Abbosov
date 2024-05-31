@@ -1,0 +1,103 @@
+Go dasturlash tilida pointerlar (ko'rsatkichlar) muhim tushuncha hisoblanadi. Pointerlar yordamida biz ma'lumotlarning xotiradagi manzillariga murojaat qilishimiz mumkin. Bu xotira boshqaruvi va ma'lumotlarni samarali uzatish imkoniyatini beradi.
+
+### Pointerlarni Tushuntirish
+
+#### Pointer yaratish va ulardan foydalanish
+
+1. **Pointerni e'lon qilish va unga qiymat berish:**
+   - `*` operatori yordamida pointer turini aniqlaymiz.
+   - `&` operatori yordamida o'zgaruvchining xotira manzilini olamiz.
+
+   **Misol:**
+   ```go
+   package main
+
+   import "fmt"
+
+   func main() {
+       var a int = 42       // Oddiy o'zgaruvchi
+       var p *int = &a      // a ning xotira manzilini saqlaydigan pointer
+
+       fmt.Println("a ning qiymati:", a)
+       fmt.Println("p ning qiymati (a ning manzili):", p)
+       fmt.Println("p ko'rsatgan qiymat:", *p)
+   }
+   ```
+   Natija:
+   ```
+   a ning qiymati: 42
+   p ning qiymati (a ning manzili): 0xc0000120a0
+   p ko'rsatgan qiymat: 42
+   ```
+
+2. **Pointer orqali qiymatni o'zgartirish:**
+   - `*` operatori orqali pointer ko'rsatgan manzildagi qiymatni o'qish yoki yozish mumkin.
+
+   **Misol:**
+   ```go
+   package main
+
+   import "fmt"
+
+   func main() {
+       var a int = 42
+       var p *int = &a
+
+       *p = 21 // Pointer orqali a ning qiymatini o'zgartiramiz
+
+       fmt.Println("a ning yangi qiymati:", a) // a ning yangi qiymati: 21
+   }
+   ```
+
+#### Pointerlarni funksiyalarda ishlatish
+
+Pointerlar funksiyalarga ma'lumotlarni uzatishda samarali bo'lishi mumkin, chunki ular ma'lumotlarning nusxasini emas, balki manzilini uzatadi.
+
+**Misol:**
+```go
+package main
+
+import "fmt"
+
+func changeValue(x *int) {
+    *x = 100 // x ko'rsatgan manzildagi qiymatni o'zgartiramiz
+}
+
+func main() {
+    var a int = 42
+    fmt.Println("Dastlabki a ning qiymati:", a) // Dastlabki a ning qiymati: 42
+
+    changeValue(&a)
+    fmt.Println("O'zgartirilgan a ning qiymati:", a) // O'zgartirilgan a ning qiymati: 100
+}
+```
+
+### Nima uchun pointerlardan foydalanish kerak?
+
+1. **Xotira boshqaruvi:**
+   - Katta ma'lumot tuzilmalarini funksiyalarga uzatishda pointerlardan foydalanish samaradorligini oshiradi.
+   - Ma'lumotlarning nusxasini yaratish o'rniga manzilini uzatish tezroq va kamroq xotira talab qiladi.
+
+2. **Ma'lumotlarni o'zgartirish:**
+   - Funksiya ichida asl ma'lumotni o'zgartirish kerak bo'lsa, pointerlardan foydalanish kerak bo'ladi.
+   - Masalan, yuqoridagi misolda ko'rsatilganidek, pointerlar orqali o'zgartirishlar funksiyadan tashqarida ham ko'rinadi.
+
+### Pointerlar bilan bog'liq qiyinchiliklar
+
+Pointerlar bilan ishlashda ehtiyot bo'lish kerak, chunki noto'g'ri foydalanish xotira xatolariga olib kelishi mumkin. Masalan:
+- Noto'g'ri manzildan ma'lumot o'qishga harakat qilish.
+- Ko'rsatkichlarni `nil` holatida ishlatish.
+
+**Misol:**
+```go
+package main
+
+import "fmt"
+
+func main() {
+    var p *int
+    fmt.Println(*p) // Xatolik: nil pointer dereference
+}
+```
+
+Go dasturlash tilida pointerlardan to'g'ri foydalanish ko'pgina holatlarda kodning samaradorligini oshirishi mumkin. Biroq, ulardan foydalanishda ehtiyotkorlik talab etiladi.

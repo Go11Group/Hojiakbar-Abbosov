@@ -1,0 +1,38 @@
+Funksiya, dasturlashda biror amalni bajarish uchun yozilgan bo'lgan boshqa dastur qismidir. U o'z ichiga bir yoki bir nechta instruksiya va amallarni o'z ichiga oladi va shu amallarni bajarib turadi. Funksiyalar dasturlarning bo'limlarini tizimlari hisoblanadi va ulardan foydalanish, dasturlarni o'rganish va tahlil qilishni osonlashtiradi.
+
+Funksiyalar bilan, biror operatsiyani turli joylarda ishlatish va qaytarish oson bo'ladi. Misol uchun, matematik funksiyalari, ma'lumotlar olish, fayllar bilan ishlash, qayta ishlash funksiyalari va h.k. odatda funksiyalarga misol qilib kiritilgan ma'lumotlar (argumentlar) beriladi va funksiya natijasini qaytaradi.
+
+Go (Golang) tilida funksiya quyidagicha ko'rinishda yoziladi:
+
+```go
+func functionName(parameter1 type1, parameter2 type2, ...) returnType {
+    // Funksiya ichidagi amallar
+    return result // Agar returnType bor bo'lsa, natija qaytariladi
+}
+```
+
+- `func`: Funksiya deb belgilanadi.
+- `functionName`: Funksiya nomi.
+- `parameter1, parameter2, ...`: Funksiya ichiga kirish qiymatlari.
+- `type1, type2, ...`: Kirish qiymatlarining turi.
+- `returnType`: Funksiya natijasining turini ifodalovchi.
+- `{}` ichida funksiya amallari yoziladi.
+
+Masalan, quyidagi kodda ikki sonni qo'shib beruvchi funksiya ko'rsatilgan:
+
+```go
+package main
+
+import "fmt"
+
+func addNumbers(x, y int) int {
+    return x + y
+}
+
+func main() {
+    sum := addNumbers(5, 7)
+    fmt.Println("Sum:", sum) // Natija: Sum: 12
+}
+```
+
+Ushbu kod funksiyada `x` va `y` argumentlarini qo'shib, natijani qaytaradi va uni main funksiyasida chiqaradi.

@@ -1,0 +1,65 @@
+5.Go dasturlash tilida pointerlar (ko'rsatkichlar) muhim tushuncha hisoblanadi. Pointerlar yordamida biz ma'lumotlarning xotiradagi manzillariga murojaat qilishimiz mumkin. Bu xotira boshqaruvi va ma'lumotlarni samarali uzatish imkoniyatini beradi.
+
+
+
+    - `*` operatori yordamida pointer turini aniqlaymiz.
+    - `&` operatori yordamida o'zgaruvchining xotira manzilini olamiz.
+   package main
+
+   import "fmt"
+
+   func main() {
+       var a int = 42       
+       var p *int = &a      
+
+       fmt.Println("a ning qiymati:", a)
+       fmt.Println("p ning qiymati (a ning manzili):", p)
+       fmt.Println("p ko'rsatgan qiymat:", *p)
+   }
+   Natija:
+   a ning qiymati: 42
+   p ning qiymati (a ning manzili): 0xc0000120a0
+   p ko'rsatgan qiymat: 42
+
+    `*` operatori orqali pointer ko'rsatgan manzildagi qiymatni o'qish yoki yozish mumkin.
+
+    package main
+
+    import "fmt"
+
+    func main() {
+        var a int = 42
+        var p *int = &a
+
+        *p = 21 
+
+        fmt.Println("a ning yangi qiymati:", a) 
+    }
+
+
+Pointerlar funksiyalarga ma'lumotlarni uzatishda samarali bo'lishi mumkin, chunki ular ma'lumotlarning nusxasini emas, balki manzilini uzatadi.
+
+
+package main
+
+import "fmt"
+
+func changeValue(x *int) {
+    *x = 100 
+}
+
+func main() {
+    var a int = 42
+    fmt.Println("Dastlabki a ning qiymati:", a) 
+
+    changeValue(&a)
+    fmt.Println("O'zgartirilgan a ning qiymati:", a) 
+}
+
+
+    - Katta ma'lumot tuzilmalarini funksiyalarga uzatishda pointerlardan foydalanish samaradorligini oshiradi.
+    - Ma'lumotlarning nusxasini yaratish o'rniga manzilini uzatish tezroq va kamroq xotira talab qiladi.
+    - Funksiya ichida asl ma'lumotni o'zgartirish kerak bo'lsa, pointerlardan foydalanish kerak bo'ladi.
+    - Masalan, yuqoridagi misolda ko'rsatilganidek, pointerlar orqali o'zgartirishlar funksiyadan tashqarida ham ko'rinadi.
+
+

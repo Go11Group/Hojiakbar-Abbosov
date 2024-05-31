@@ -1,0 +1,5 @@
+
+Concurrency va parallelism ko'pincha bir-biriga aralashtiriladi, lekin ular o'zaro farqlanadi:
+•
+Concurrency: Dasturda bir nechta vazifalarni mustaqil ravishda boshqarish qobiliyatidir. Bu vazifalar bir vaqtning o'zida bajarilishi shart emas, lekin ular bir-biridan mustaqil ravishda boshlanishi va tugatilishi mumkin.
+• Parallelism: Bir nechta vazifalarni haqiqatan ham bir vaqtning o'zida bajarishdir. Bu odatda ko'p yadroli protsessorlar yordamida amalga oshiriladi.

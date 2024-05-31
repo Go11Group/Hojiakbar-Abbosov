@@ -1,0 +1,57 @@
+Go dasturlash tilida `fmt.Printf` va `fmt.Sprintf` funktsiyalari ikkalasi ham matn formatlash uchun ishlatiladi, lekin ular orasida ba'zi farqlar bor:
+
+1. **Natija Yaratilishi va Qaytarilishi:**
+
+   - `fmt.Printf`:
+     - Bu funksiya formatlangan matnni konsolga (standart chiqishga) chiqaradi.
+     - **Misol:**
+       ```go
+       fmt.Printf("Salom, %s!\n", "Dunyo")
+       ```
+       Bu kod konsolda `Salom, Dunyo!` deb chiqaradi.
+
+   - `fmt.Sprintf`:
+     - Bu funksiya formatlangan matnni string (satr) sifatida qaytaradi.
+     - **Misol:**
+       ```go
+       msg := fmt.Sprintf("Salom, %s!", "Dunyo")
+       fmt.Println(msg)
+       ```
+       Bu kod `msg` o'zgaruvchisiga `Salom, Dunyo!` matnini saqlaydi va keyin bu matnni konsolga chiqaradi.
+
+2. **Foydalanish Maqsadi:**
+
+   - `fmt.Printf`:
+     - Asosan formatlangan natijani to'g'ridan-to'g'ri chiqarish kerak bo'lganda ishlatiladi.
+     - Masalan, ma'lumotlarni foydalanuvchiga ko'rsatish yoki debug qilish jarayonida.
+
+   - `fmt.Sprintf`:
+     - Formatlangan natijani string o'zgaruvchisi sifatida olish kerak bo'lganda ishlatiladi.
+     - Masalan, biror matnni boshqa funksiyaga uzatish yoki keyinchalik foydalanish uchun string sifatida saqlash.
+
+3. **Misollar bilan tushuntirish:**
+
+   - `fmt.Printf`:
+     ```go
+     func main() {
+         name := "Go"
+         age := 10
+         fmt.Printf("Men %s dasturlash tilini o'rganyapman. Yoshi: %d yil.\n", name, age)
+     }
+     ```
+     Konsolda chiqish: `Men Go dasturlash tilini o'rganyapman. Yoshi: 10 yil.`
+
+   - `fmt.Sprintf`:
+     ```go
+     func main() {
+         name := "Go"
+         age := 10
+         message := fmt.Sprintf("Men %s dasturlash tilini o'rganyapman. Yoshi: %d yil.", name, age)
+         fmt.Println(message)
+     }
+     ```
+     Konsolda chiqish: `Men Go dasturlash tilini o'rganyapman. Yoshi: 10 yil.`
+
+   - Yuqoridagi `fmt.Sprintf` misolida `message` o'zgaruvchisi formatlangan matnni saqlaydi, keyin esa `fmt.Println` yordamida konsolga chiqariladi.
+
+Bu farqlar orqali siz qaysi funksiya qachon ishlatilishini aniqlab olishingiz mumkin. `fmt.Printf` to'g'ridan-to'g'ri chiqish uchun, `fmt.Sprintf` esa string o'zgaruvchisini yaratish uchun ishlatiladi.

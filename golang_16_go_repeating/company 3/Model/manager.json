@@ -1,0 +1,4 @@
+[{"Id":1,"Companies":[{"Id":1,"Name":"gm","Phone":"12","Address":"tashkent","Vacancies":[{"Id":1,"Count":3,"Comments":"gollang","Interviews":null}]}],"Name":"jamshid","Surname":"hatamov","Email":"1","Password":"1"}]
+[{"Id":1,"Companies":[{"Id":1,"Name":"gm","Phone":"12","Address":"tashkent","Vacancies":[{"Id":1,"Count":3,"Comments":"gollang","Interviews":null}]}],"Name":"jamshid","Surname":"hatamov","Email":"1","Password":"1"}]
+[{"Id":1,"Companies":[{"Id":1,"Name":"gm","Phone":"12","Address":"tashkent","Vacancies":[{"Id":1,"Count":3,"Comments":"gollang","Interviews":[{"Id":1,"Time":"34.4","Place":"tashkent","Candidates":null}]}]}],"Name":"jamshid","Surname":"hatamov","Email":"1","Password":"1"}]
+[{"Id":1,"Companies":[{"Id":1,"Name":"gm","Phone":"12","Address":"tashkent","Vacancies":[{"Id":1,"Count":3,"Comments":"gollang","Interviews":null}]}],"Name":"jamshid","Surname":"hatamov","Email":"1","Password":"1"}]
