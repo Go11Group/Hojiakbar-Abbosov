@@ -9,7 +9,6 @@ import (
 )
 
 func main() {
-	
 	con := "postgres://postgres:root@localhost:5432/go11?sslmode=disable"
 
 	database, err := db.InitDB(con, &models.User{})
@@ -43,5 +42,12 @@ func main() {
 		fmt.Println("Error deleting user:", err)
 	} else {
 		fmt.Println("User deleted successfully")
+	}
+
+	filteredUsers, err := user.GetFilteredUsers(database, "John", "", "", 0, 0, "Engineering", "", true)
+	if err != nil {
+		fmt.Println("Error getting filtered users:", err)
+	} else {
+		fmt.Println("Filtered Users:", filteredUsers)
 	}
 }
