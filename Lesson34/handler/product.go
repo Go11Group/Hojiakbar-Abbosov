@@ -21,11 +21,11 @@ func (h *ProductHandler) CreateProduct(w http.ResponseWriter, r *http.Request) {
         http.Error(w, err.Error(), http.StatusBadRequest)
         return
     }
-
+    
     err = h.Repo.CreateProduct(&product)
     if err != nil {
         http.Error(w, err.Error(), http.StatusInternalServerError)
-        return
+        return 
     }
 
     w.WriteHeader(http.StatusCreated)
