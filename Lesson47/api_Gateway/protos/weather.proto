@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+option go_package = "genproto/weather";
+
+package weather;
+
+service Weather{
+    rpc GetCurrentWeather(time) returns(weather){}
+    rpc GetWeatherForecast(day) returns(weather){}
+    rpc ReportWeatherCondition(weather) returns(status){}
+}
+
+message time{
+    string time = 1;
+}
+
+message weather{
+    string weather = 1;
+    int32 temperature = 2;
+    int32 damp = 3;
+    int32 wind = 4;
+    string time = 5;
+}
+
+message day{
+    string day = 1;
+}
+
+message status{
+    bool status = 1;
+}

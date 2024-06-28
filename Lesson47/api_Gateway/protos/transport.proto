@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+option go_package = "genproto/transport";
+
+package transport;
+
+service Transport{
+    rpc GetBusSchedule(number) returns(bus){}
+    rpc TrackBusLocation(number) returns(location){}
+    rpc ReportTrafficJam(location) returns(status){}
+}
+
+
+message number{
+    int32 number = 1;
+}
+
+message bus{
+    int32 number = 1;
+    string from = 2;
+    string to = 3;
+    location loc = 4;
+    status trafficStat = 5;
+}
+
+message location{
+    string station = 1;
+}
+
+message status{
+    bool status = 1;
+}
